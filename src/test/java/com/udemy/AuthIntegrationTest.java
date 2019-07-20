@@ -1,12 +1,11 @@
 package com.udemy;
 
+import io.dropwizard.Application;
+import io.dropwizard.testing.ResourceHelpers;
 import io.dropwizard.testing.junit.DropwizardAppRule;
 import org.glassfish.jersey.SslConfigurator;
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.ClassRule;
-import org.junit.Test;
+import org.junit.*;
 
 import javax.net.ssl.SSLContext;
 import javax.ws.rs.client.Client;
@@ -17,7 +16,7 @@ import javax.ws.rs.core.Response;
 import static org.junit.Assert.*;
 
 public class AuthIntegrationTest {
-    private static final String CONFIG_PATH = "config.yml";
+    private static final String CONFIG_PATH = ResourceHelpers.resourceFilePath("test-config.yml");
 
     @ClassRule
     public static final DropwizardAppRule<BookMarks3Configuration> RULE
@@ -39,6 +38,13 @@ public class AuthIntegrationTest {
             = "p@ssw0rd";
 
     private Client client;
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+        Application<BookMarks3Configuration> application
+                = RULE.getApplication();
+        application.run("db", "migrate", "-i DEV", CONFIG_PATH);
+    }
 
     @Before
     public void setUp() {
@@ -72,7 +78,7 @@ public class AuthIntegrationTest {
                 .get();
 
         assertEquals(Response.Status
-                .UNAUTHORIZED.getStatusCode(),
+                        .UNAUTHORIZED.getStatusCode(),
                 response.getStatus());
     }
 
@@ -86,7 +92,7 @@ public class AuthIntegrationTest {
                 .get();
 
         assertEquals(Response.Status
-                .OK.getStatusCode(),
+                        .OK.getStatusCode(),
                 response.getStatus());
     }
 

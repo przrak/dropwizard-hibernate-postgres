@@ -5,7 +5,7 @@ import io.dropwizard.hibernate.AbstractDAO;
 import org.hibernate.SessionFactory;
 
 import java.util.List;
-import java.util.Optional;
+import com.google.common.base.Optional;
 
 public class UserDAO extends AbstractDAO<User> {
 
@@ -23,7 +23,7 @@ public class UserDAO extends AbstractDAO<User> {
 
     public Optional<User> findByUsernamePassword(String username,
                                                  String password) {
-        return Optional.ofNullable(
+        return Optional.fromNullable(
                 uniqueResult(
                         namedQuery("com.udemy.core.User.findByUsernamePassword")
                                 .setParameter("username", username)

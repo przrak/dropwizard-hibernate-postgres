@@ -1,5 +1,6 @@
 package com.udemy.db;
 
+import com.google.common.base.Optional;
 import com.udemy.core.User;
 import liquibase.Liquibase;
 import liquibase.database.Database;
@@ -20,7 +21,6 @@ import org.junit.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Optional;
 
 public class UserDAOTest {
 

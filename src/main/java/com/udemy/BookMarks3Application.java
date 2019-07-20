@@ -1,5 +1,6 @@
 package com.udemy;
 
+import com.udemy.auth.DBAuthenticator;
 import com.udemy.auth.HelloAuthenticator;
 import com.udemy.core.User;
 import com.udemy.db.UserDAO;
@@ -57,7 +58,7 @@ public class BookMarks3Application extends Application<BookMarks3Configuration> 
         environment.jersey().register(
                 AuthFactory.binder(
                         new BasicAuthFactory<>(
-                                new HelloAuthenticator(configuration.getPassword()),
+                                new DBAuthenticator(userDAO),
                                 "SECURITY_REALM",
                                 User.class
                         )
