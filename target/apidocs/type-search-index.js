@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"com.udemy","l":"BookMarks3Application"},{"p":"com.udemy","l":"BookMarks3Configuration"},{"p":"com.udemy.auth","l":"HelloAuthenticator"},{"p":"com.udemy.resources","l":"HelloResource"},{"p":"com.udemy.core","l":"User"}]

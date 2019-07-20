@@ -1,0 +1,18 @@
+# password
+password: p@ssw0rd
+
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
+    - type: https
+      port: 8443
+      keyStorePath: dropbookmarks.keystore
+      keyStorePassword: p@ssw0rd
+      validateCerts: false
+
+database:
+  driverClass: org.postgresql.Driver
+  user: user
+  password: password
+  url: jdbc:postgresql://localhost:5432/DropBookmarks

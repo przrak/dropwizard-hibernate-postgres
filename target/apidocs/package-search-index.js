@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.udemy"},{"l":"com.udemy.auth"},{"l":"com.udemy.core"},{"l":"com.udemy.resources"}]
