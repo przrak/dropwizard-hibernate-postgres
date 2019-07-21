@@ -50,6 +50,11 @@
             <column name="username" value="udemy"/>
             <column name="password" value="p@ssw0rd"/>
         </insert>
+        <insert tableName="users">
+            <column name="id" value="2"/>
+            <column name="username" value="username"/>
+            <column name="password" value="p@ssw0rd"/>
+        </insert>
         <rollback>
             <delete tableName="users">
                 <where>
@@ -57,6 +62,30 @@
                 </where>
             </delete>
         </rollback>
+    </changeSet>
+
+    <changeSet id="4" author="dima">
+        <insert tableName="bookmarks">
+            <column name="id" value="1"/>
+            <column name="name" value="bookmark1"/>
+            <column name="url" value="http://ya.ru"/>
+            <column name="description" value="Yandex"/>
+            <column name="user_id" value="1"/>
+        </insert>
+        <insert tableName="bookmarks">
+            <column name="id" value="2"/>
+            <column name="name" value="bookmark2"/>
+            <column name="url" value="http://mail.ru"/>
+            <column name="description" value="Mail"/>
+            <column name="user_id" value="1"/>
+        </insert>
+        <insert tableName="bookmarks">
+            <column name="id" value="3"/>
+            <column name="name" value="bookmark3"/>
+            <column name="url" value="http://google.com"/>
+            <column name="description" value="Google"/>
+            <column name="user_id" value="2"/>
+        </insert>
     </changeSet>
 
 </databaseChangeLog>
